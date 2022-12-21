@@ -18,12 +18,10 @@ def get_product(data:str) -> str:
     for div in product_tags:
         # get product name
         product_name = div.h3.text
-        # find price and description
-        soup = BeautifulSoup(div.prettify(), features='html.parser')
         # get price
-        price = soup.find('p', class_='price').text.strip()
+        price = div.find('p', class_='price').text
         # get description
-        description = soup.find('p', class_='description').text.strip()
+        description = div.find('p', class_='description').text
 
         products.append(','.join([product_name, price, description]))
     
