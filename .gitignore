@@ -1,6 +1,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/venv,python,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=venv,python,visualstudiocode
 
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -199,4 +200,4 @@ pip-selfcheck.json
 .history
 .ionide
 
-# End of https://www.toptal.com/developers/gitignore/api/venv,python,visualstudiocode
+# End of https://www.toptal.com/developers/gitignore/api/python,venv,visualstudiocode
