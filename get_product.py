@@ -9,25 +9,8 @@ def get_product(data:str) -> str:
     Returns:
         str: The product name in CSV format.
     """
-    # list of products
-    products = ['Product Name,Product Price,Product Description']
+    return "Product Name,Product Price,Product Description\n"+("\n".join([f'{element.h3.text}, {element.p.text}, {element.find(class_="description").text}' for element in BeautifulSoup(data, features="html.parser").find_all(class_="product")]))
 
-    soup = BeautifulSoup(markup=data, features='html.parser')
-    # get div tags
-    product_tags = soup.find_all('div', class_='product')
-    for div in product_tags:
-        # get product name
-        product_name = div.h3.text
-        # get price
-        price = div.find('p', class_='price').text
-        # get description
-        description = div.find('p', class_='description').text
-
-        products.append(','.join([product_name, price, description]))
-    
-    # convert to str
-    products_str = '\n'.join(products)
-    return products_str
 
 def save_product(product:str) -> None:
     """Save the product name to the CSV file.
@@ -35,14 +18,14 @@ def save_product(product:str) -> None:
     Args:
         product (str): The product name in CSV format.
     """
-    with open('products.csv', 'w') as f:
-        f.write(product)
+    with open('products.csv', "w") as f: f.write(product)
+    return True
+
 
 # Open the file and read the HTML string
 with open('html/product1.html', 'r') as f:
     data = f.read()
-
-# Get the product name in CSV format
-product_csv=get_product(data) 
-# Save the product name to the CSV file
-save_product(product_csv) 
+    # Get the product name in CSV format
+    product_csv=get_product(data)
+    # Save the product name to the CSV file
+    save_product(product_csv) 
