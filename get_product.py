@@ -8,6 +8,7 @@ def get_product(data:str) -> str:
 
     Returns:
         str: The product name in CSV format.
+    """
     return "Product Name,Product Price,Product Description\n"+("\n".join([f'{element.h3.text}, {element.p.text}, {element.find(class_="description").text}' for element in BeautifulSoup(data, features="html.parser").find_all(class_="product")]))
 
 
