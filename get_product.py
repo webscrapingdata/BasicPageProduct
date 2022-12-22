@@ -18,7 +18,7 @@ def save_product(product:str) -> None:
     Args:
         product (str): The product name in CSV format.
     """
-    with open('product.csv', "w") as f: f.write(product)
+    with open('products.csv', "w") as f: f.write(product)
     return True
 
 
