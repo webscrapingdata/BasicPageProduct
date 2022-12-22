@@ -29,7 +29,8 @@ def save_product(product:str) -> None:
     Args:
         product (str): The product name in CSV format.
     """
-    pass
+    with open('product.csv', 'w') as f:
+        f.write(product)
 
 # Open the file and read the HTML string
 with open('html/product1.html', 'r') as f:
@@ -37,5 +38,5 @@ with open('html/product1.html', 'r') as f:
     # Get the product name in CSV format
     product_csv=get_product(data) 
     # Save the product name to the CSV file
-    # save_product(product_csv) 
+    save_product(product_csv) 
 # print(product_csv)
