@@ -9,7 +9,7 @@ def get_product(data:str) -> str:
     Returns:
         str: The product name in CSV format.
     """
-    
+
     soup = BeautifulSoup(data, 'html.parser')
 
     names = soup.findAll(name='h3', attrs={'class':'name'})
@@ -38,5 +38,5 @@ with open('html/product1.html', 'r') as f:
     # Get the product name in CSV format
     product_csv=get_product(data) 
     # Save the product name to the CSV file
-    save_product(product_csv) 
+    save_product(product_csv)
 # print(product_csv)
