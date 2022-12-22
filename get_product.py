@@ -21,7 +21,7 @@ def get_product(data:str) -> str:
     descriptions=soup.findAll(name='p',attrs={'class':'description'})
     product_csv='Product Name,Product Price,Product Description\n'
     for i in range(len(names)):
-        product_csv+=f'{names[i].get_text()} {prices[i].get_text()} {descriptions[i].get_text()} \n'
+        product_csv+=f'{names[i].get_text()}, {prices[i].get_text()}, {descriptions[i].get_text()}\n'
     return product_csv
    
 
